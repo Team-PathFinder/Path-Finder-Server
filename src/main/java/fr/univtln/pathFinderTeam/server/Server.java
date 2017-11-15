@@ -26,7 +26,7 @@ public class Server {
     }
 
     private static URI getBaseURI() {
-        return UriBuilder.fromUri("http://0.0.0.0/").port(getPort(9999)).build();
+        return UriBuilder.fromUri("http://0.0.0.0/").port(getPort(1531)).build();
     }
 
     public static final URI BASE_URI = getBaseURI();
