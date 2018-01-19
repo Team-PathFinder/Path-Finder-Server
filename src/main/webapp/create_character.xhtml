@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/mainTemplate.xhtml">
+
+    <h:head>
+        <title>Crée un personnage</title>
+    </h:head>
+
+    <ui:define name="bodyContent">
+        <h:form>
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"/>
+
+            <h:panelGrid columns="2">
+
+                <p:outputLabel for="name" value="Nom : "/>
+                <p:inputText id="name" value="#{characterBean.character.name}" required="true"
+                             requiredMessage="Name obligatoire."/>
+
+                <p:outputLabel for="classe" value="Classe :"/>
+                <p:inputText id="classe" value="#{characterBean.character.classe}" required="true"
+                             requiredMessage="Classe obligatoire."/>
+
+                <h:outputLabel for="force" value="Force : " />
+                <p:spinner id="force" value="#{characterBean.character.force}" />
+
+                <h:outputLabel for="dext" value="Dextérité  : " />
+                <p:spinner id="dext" value="#{characterBean.character.dexterite}" />
+
+                <h:outputLabel for="constitution" value="Constitution : " />
+                <p:spinner id="constitution" value="#{characterBean.character.constitution}" />
+
+                <h:outputLabel for="int" value="Inteligence : " />
+                <p:spinner id="int" value="#{characterBean.character.intelligence}" />
+
+                <h:outputLabel for="sag" value="Sagesse : " />
+                <p:spinner id="sag" value="#{characterBean.character.sagesse}" />
+
+                <h:outputLabel for="char" value="Charisme : " />
+                <p:spinner id="char" value="#{characterBean.character.charisme}" />
+
+            </h:panelGrid>
+
+            <p:commandButton value="OK" ajax="false" action="#{characterBean.createCharacter()}" />
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>
