@@ -1,40 +1,40 @@
-package fr.univtln.pathFinderTeam.dao;
+package fr.univtln.pathFinderTeam.DAO;
 
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by clemzux on 03/08/2016.
- */
-
+@Stateless
 public class CrudServiceBean<T> implements CrudService<T> {
 
-    public static EntityManager cEntityManager = EntityManager.getINSTANCE();
+    @PersistenceContext(unitName = "persistence")
+    EntityManager em;
 
-    public static javax.persistence.EntityManager em = cEntityManager.getEm();
+    public CrudServiceBean() {}
 
-    public  T create(T t) {
-        this.em.merge(t);
+    public T create(T t) {
+        this.em.persist(t);
         this.em.flush();
+        this.em.refresh(t);
         return t;
     }
 
     @SuppressWarnings("unchecked")
-    public  T find(Class type,Object id) {
+    public T find(Class type,Object id) {
         return (T) this.em.find(type, id);
     }
 
-    public void delete(Class type,Object id) {
+    public void delete(Class type, Object id) {
         Object ref = this.em.getReference(type, id);
         this.em.remove(ref);
     }
 
-
-    public  T update(T t) {
-        t = (T)this.em.merge(t);
-        return t;
+    public T update(T t) {
+        return (T)this.em.merge(t);
     }
 
     public List findWithNamedQuery(String namedQueryName){
@@ -56,14 +56,13 @@ public class CrudServiceBean<T> implements CrudService<T> {
     }
 
     public List findWithNamedQuery(String namedQueryName, Map parameters,int resultLimit){
-        Set<Map.Entry> rawParameters = parameters.entrySet();
+        Set<Map.Entry<String, Object>> rawParameters = parameters.entrySet();
         Query query = this.em.createNamedQuery(namedQueryName);
         if(resultLimit > 0)
             query.setMaxResults(resultLimit);
-        for (Map.Entry entry : rawParameters) {
-                query.setParameter((String) entry.getKey(), entry.getValue());
-            }
+        for (Map.Entry<String, Object> entry : rawParameters) {
+            query.setParameter(entry.getKey(), entry.getValue());
+        }
         return query.getResultList();
     }
 }
-

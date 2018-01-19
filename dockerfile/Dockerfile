@@ -1,0 +1,5 @@
+FROM postgres
+
+ENV POSTGRES_USER pathfinderuser
+ENV POSTGRES_PASSWORD pfdb
+ENV POSTGRES_DB pathfinderdatabase
