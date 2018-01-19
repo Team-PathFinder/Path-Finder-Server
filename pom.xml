@@ -44,7 +44,7 @@
     <groupId>fr.univtln.vfh</groupId>
     <artifactId>pathFinderServer</artifactId>
     <version>1.0-jsf_ui-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <!-- ADAPTER les coordonnées -->
 
     <!-- ADAPTER les métadonnées -->
