@@ -47,12 +47,12 @@ public class CharacterBean implements Serializable {
 
     public String levelUp(){
         //Recuperer level classe dans bdd
-        //LevelClass levelClass = levelClassManager.findByName(classe);
+        LevelClass levelClass = levelClassManager.findByName(classe);
         //Recuperer le character
-        //RPCharacter character = characterManager.findByName(name);
+        RPCharacter character = characterManager.findByName(name);
         //Ajouter level class dans character avec la fonctin addLevelClass
         if(character != null){
-            //character.addLevelClass(levelClass);
+            character.addLevelClass(levelClass);
             //Mettre a jour le character
             characterManager.update(character);
         }

@@ -3,6 +3,7 @@ package fr.univtln.pathFinderTeam.EJB;
 
 import fr.univtln.pathFinderTeam.DAO.CrudService;
 import fr.univtln.pathFinderTeam.DAO.CrudServiceBean;
+import fr.univtln.pathFinderTeam.DAO.QueryParameter;
 import fr.univtln.pathFinderTeam.classes.RPCharacter;
 
 import javax.ejb.EJB;
@@ -22,6 +23,11 @@ public class RPCharacterManager implements Serializable {
     public RPCharacter create(RPCharacter rpchar) {
         System.out.println(rpchar.toString());
         return cs.create(rpchar);
+    }
+
+    public RPCharacter findByName(String pName) {
+
+        return (RPCharacter) cs.findWithNamedQuery("findByName", QueryParameter.with("pName",pName).parameters()).get(0);
     }
 
     public RPCharacter update(RPCharacter rpChar) {

@@ -186,8 +186,7 @@
         <dependency>
             <groupId>fr.univtln.pathFinderTeam</groupId>
             <artifactId>Path-Finder-Classes-Metiers</artifactId>
-            <version>1.3-SNAPSHOT</version>
-
+            <version>1.2-SNAPSHOT</version>
         </dependency>
 
         <!--dependances pour le serveur rest-->
