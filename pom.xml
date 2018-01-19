@@ -44,7 +44,7 @@
     <groupId>fr.univtln.vfh</groupId>
     <artifactId>pathFinderServer</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <!-- ADAPTER les coordonnées -->
 
     <!-- ADAPTER les métadonnées -->
@@ -176,10 +176,16 @@
 
         <!--dependances des classes métier-->
 
+        <!--<dependency>-->
+            <!--<groupId>fr.univtln.pathFinderTeam</groupId>-->
+            <!--<artifactId>Path-Finder-Classes-Metiers</artifactId>-->
+            <!--<version>1.2-test_bintray_2-SNAPSHOT</version>-->
+        <!--</dependency>-->
+
         <dependency>
             <groupId>fr.univtln.pathFinderTeam</groupId>
             <artifactId>Path-Finder-Classes-Metiers</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.2-amelioration-SNAPSHOT</version>
         </dependency>
 
         <!--dependances pour le serveur rest-->
@@ -197,11 +203,30 @@
             <version>1.19</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!--dependances pour les ejb-->
 
         <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.3</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>javax</groupId>-->
+            <!--<artifactId>javaee-web-api</artifactId>-->
+            <!--<version>7.0</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+        <dependency>
             <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
+            <artifactId>javaee-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
@@ -222,6 +247,32 @@
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-grizzly2-http</artifactId>
             <version>2.26</version>
+        </dependency>
+
+        <!-- JACKSON -->
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>2.7.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.7.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.7.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.7.4</version>
         </dependency>
 
     </dependencies>

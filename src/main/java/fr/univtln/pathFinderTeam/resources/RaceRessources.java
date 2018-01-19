@@ -1,0 +1,46 @@
+package fr.univtln.pathFinderTeam.resources;
+
+import fr.univtln.pathFinderTeam.EJB.RaceManager;
+import fr.univtln.pathFinderTeam.classes.RPCharacter;
+import fr.univtln.pathFinderTeam.classes.Race;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+
+@Stateless
+@Path("/race")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+public class RaceRessources{
+
+    @EJB
+    RaceManager rm;
+
+    public RaceRessources(){}
+
+    @POST
+    public Race create(Race race){
+
+        Race newRace = rm.create(race);
+        return newRace;
+    }
+
+    @PUT
+    public Response update(Race race) {
+
+        Race newRace = rm.update(race);
+        return Response.ok(newRace).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response getRace(@PathParam("id") int id) {
+
+        Race newRace = rm.find(id);
+        return Response.ok(newRace).build();
+    }
+}
