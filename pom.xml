@@ -44,7 +44,7 @@
     <groupId>fr.univtln.vfh</groupId>
     <artifactId>pathFinderServer</artifactId>
     <version>1.0-jsf_ui-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <!-- ADAPTER les coordonnées -->
 
     <!-- ADAPTER les métadonnées -->
@@ -179,7 +179,7 @@
         <dependency>
             <groupId>fr.univtln.pathFinderTeam</groupId>
             <artifactId>Path-Finder-Classes-Metiers</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.1</version>
         </dependency>
 
         <!--dependances pour le serveur rest-->
