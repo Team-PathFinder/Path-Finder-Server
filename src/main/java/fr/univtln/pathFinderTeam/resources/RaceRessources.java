@@ -6,18 +6,19 @@ import fr.univtln.pathFinderTeam.classes.Race;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
 @Stateless
-@Path("/race")
+@Path("/races")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class RaceRessources{
 
-    @EJB
+    @Inject
     RaceManager rm;
 
     public RaceRessources(){}

@@ -4,7 +4,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-<f:view contentType="text/html" locale="en">
+
     <h:head title="Hello JSF">
         <f:facet name="first">
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -13,8 +13,8 @@
             <meta http-equiv="expires" content="0"/>
         </f:facet>
         <!--h:outputStylesheet library="css" name="styles.css"/-->
-        <title>#{msg['app.title']}</title>
-        <ui:insert name="head"/>
+        <title>Bienvenue dans PathFinder</title>
+
     </h:head>
     <h:body>
         <div id="wrapper">
@@ -30,9 +30,9 @@
 
                     <p:toolbar>
                         <f:facet name="left">
-                            <p:button outcome="index" value="Accueil" icon="ui-icon-folder-open"/>
-                            <p:button outcome="create_character" value="Creer" icon="ui-icon-folder-open"/>
-                            <p:button outcome="levelup_character" value="Levelup" icon="ui-icon-folder-open"/>
+                            <p:button href="welcome.xhtml" value="Accueil" icon="ui-icon-folder-open"/>
+                            <p:button href="create_character.xhtml" value="Creer" icon="ui-icon-folder-open"/>
+                            <p:button href="levelup_character.xhtml" value="Levelup" icon="ui-icon-folder-open"/>
                         </f:facet>
                     </p:toolbar>
                 </h:form>
@@ -42,5 +42,4 @@
 
         </div>
     </h:body>
-</f:view>
 </html>

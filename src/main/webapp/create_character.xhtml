@@ -2,7 +2,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
-                template="/templates/mainTemplate.xhtml">
+                template="template/mainTemplate.xhtml">
 
     <h:head>
         <title>Crée un personnage</title>
@@ -18,15 +18,11 @@
                 <p:inputText id="name" value="#{characterBean.character.name}" required="true"
                              requiredMessage="Name obligatoire."/>
 
-                <p:outputLabel for="classe" value="Classe :"/>
-                <p:inputText id="classe" value="#{characterBean.character.classe}" required="true"
-                             requiredMessage="Classe obligatoire."/>
-
                 <h:outputLabel for="force" value="Force : " />
-                <p:spinner id="force" value="#{characterBean.character.force}" />
+                <p:spinner id="force" value="#{characterBean.character.strength}" />
 
                 <h:outputLabel for="dext" value="Dextérité  : " />
-                <p:spinner id="dext" value="#{characterBean.character.dexterite}" />
+                <p:spinner id="dext" value="#{characterBean.character.dexterity}" />
 
                 <h:outputLabel for="constitution" value="Constitution : " />
                 <p:spinner id="constitution" value="#{characterBean.character.constitution}" />
@@ -35,10 +31,19 @@
                 <p:spinner id="int" value="#{characterBean.character.intelligence}" />
 
                 <h:outputLabel for="sag" value="Sagesse : " />
-                <p:spinner id="sag" value="#{characterBean.character.sagesse}" />
+                <p:spinner id="sag" value="#{characterBean.character.wisdom}" />
 
                 <h:outputLabel for="char" value="Charisme : " />
-                <p:spinner id="char" value="#{characterBean.character.charisme}" />
+                <p:spinner id="char" value="#{characterBean.character.charisma}" />
+
+                <h:outputLabel for="sexe" value="Sexe : " />
+                <p:spinner id="sexe" value="#{characterBean.character.gender}" />
+
+                <h:outputLabel for="age" value="Age : " />
+                <p:spinner id="age" value="#{characterBean.character.age}" />
+
+                <h:outputLabel for="hitpoint" value="Points de vie : " />
+                <p:spinner id="hitpoint" value="#{characterBean.character.hitpoint}" />
 
             </h:panelGrid>
 

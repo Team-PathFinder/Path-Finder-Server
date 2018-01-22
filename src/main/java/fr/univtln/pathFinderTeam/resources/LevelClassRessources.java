@@ -5,18 +5,20 @@ import fr.univtln.pathFinderTeam.classes.LevelClass;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 
 @Stateless
-@Path("/level")
+@Path("/levels")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class LevelClassRessources{
 
-    @EJB
+    @Inject
     LevelClassManager lcm;
 
     public LevelClassRessources(){}
@@ -25,6 +27,10 @@ public class LevelClassRessources{
     public Response create(LevelClass lc) {
 
         LevelClass newLC = lcm.create(lc);
+
+        if (newLC == null)
+            return Response.serverError().build();
+
         return Response.ok(newLC).build();
     }
 
@@ -41,5 +47,12 @@ public class LevelClassRessources{
 
         LevelClass newLC = lcm.find(id);
         return Response.ok(newLC).build();
+    }
+
+    @GET
+    public Response getAll() {
+
+        List<LevelClass> levelClasses = lcm.findAll();
+        return Response.ok(levelClasses).build();
     }
 }

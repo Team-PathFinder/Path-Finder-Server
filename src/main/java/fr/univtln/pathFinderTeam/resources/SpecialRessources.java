@@ -5,18 +5,19 @@ import fr.univtln.pathFinderTeam.classes.Special;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
 @Stateless
-@Path("/special")
+@Path("/specials")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class SpecialRessources {
 
-    @EJB
+    @Inject
     SpecialManager sm;
 
     public SpecialRessources(){}

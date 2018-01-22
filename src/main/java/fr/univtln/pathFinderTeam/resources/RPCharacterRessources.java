@@ -8,6 +8,7 @@ import fr.univtln.pathFinderTeam.classes.Race;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -17,12 +18,12 @@ import java.util.List;
 
 
 @Stateless
-@Path("/character")
+@Path("/characters")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class RPCharacterRessources{
 
-    @EJB
+    @Inject
     RPCharacterManager rcm;
 
     public RPCharacterRessources(){}
@@ -47,5 +48,12 @@ public class RPCharacterRessources{
 
         RPCharacter newRPchar = rcm.find(id);
         return Response.ok(newRPchar).build();
+    }
+
+    @GET
+    public Response getAll() {
+
+        List<RPCharacter> all = rcm.findAll();
+        return Response.ok(all).build();
     }
 }

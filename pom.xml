@@ -44,7 +44,7 @@
     <groupId>fr.univtln.vfh</groupId>
     <artifactId>pathFinderServer</artifactId>
     <version>1.0-jsf_ui-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <!-- ADAPTER les coordonnées -->
 
@@ -186,7 +186,7 @@
         <dependency>
             <groupId>fr.univtln.pathFinderTeam</groupId>
             <artifactId>Path-Finder-Classes-Metiers</artifactId>
-            <version>1.2-SNAPSHOT</version>
+            <version>1.0</version>
         </dependency>
 
         <!--dependances pour le serveur rest-->
@@ -255,6 +255,13 @@
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- JACKSON -->

@@ -15,4 +15,5 @@ public interface CrudService<T> {
     public List findWithNamedQuery(String queryName,int resultLimit);
     public List findWithNamedQuery(String namedQueryName, Map parameters);
     public List findWithNamedQuery(String namedQueryName, Map parameters,int resultLimit);
+    public List findAll(Class type);
 }
