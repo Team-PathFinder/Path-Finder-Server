@@ -26,6 +26,10 @@ public class SpecialRessources {
     public Response create(Special special){
 
         Special newSpecial = sm.create(special);
+
+        if (newSpecial == null)
+            return Response.serverError().build();
+
         return Response.ok(newSpecial).build();
     }
 

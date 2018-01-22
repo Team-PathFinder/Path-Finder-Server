@@ -24,10 +24,14 @@ public class RaceRessources{
     public RaceRessources(){}
 
     @POST
-    public Race create(Race race){
+    public Response create(Race race){
 
         Race newRace = rm.create(race);
-        return newRace;
+
+        if (newRace == null)
+            return Response.serverError().build();
+
+        return Response.ok(newRace).build();
     }
 
     @PUT

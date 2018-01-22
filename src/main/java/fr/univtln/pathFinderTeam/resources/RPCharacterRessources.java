@@ -29,10 +29,14 @@ public class RPCharacterRessources{
     public RPCharacterRessources(){}
 
     @POST
-    public RPCharacter create(RPCharacter rpchar) {
+    public Response create(RPCharacter rpchar) {
 
         RPCharacter newRPchar = rcm.create(rpchar);
-        return newRPchar;
+
+        if (newRPchar == null)
+            return Response.serverError().build();
+
+        return Response.ok(newRPchar).build();
     }
 
     @PUT
