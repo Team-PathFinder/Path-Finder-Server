@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 
 @Stateless
@@ -47,5 +48,12 @@ public class RaceRessources{
 
         Race newRace = rm.find(id);
         return Response.ok(newRace).build();
+    }
+
+    @GET
+    public Response getAll() {
+
+        List<Race> races = rm.findAll();
+        return Response.ok(races).build();
     }
 }

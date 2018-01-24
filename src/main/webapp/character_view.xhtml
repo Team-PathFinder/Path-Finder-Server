@@ -5,11 +5,11 @@
                 template="template/mainTemplate.xhtml">
 
     <h:head>
-        <title>Créer un personnage</title>
+        <title>Voir un personnage</title>
     </h:head>
 
     <ui:define name="bodyContent">
-        <h:form>
+
             <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"/>
 
             <h:panelGrid columns="2">
@@ -46,13 +46,10 @@
                 <p:spinner id="hitpoint" value="#{characterBean.character.hitpoint}" />
 
                 <h:outputLabel for="race" value="Race du personnage : " />
-                <p:spinner id="race" value="#{characterBean.raceName}" />
+                <p:spinner id="race" value="#{characterBean.character.race.name}" />
 
             </h:panelGrid>
 
-            <p:commandButton value="OK" ajax="false" action="#{characterBean.createCharacter()}" />
-
-        </h:form>
     </ui:define>
 
 </ui:composition>

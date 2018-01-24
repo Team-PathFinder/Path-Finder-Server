@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="template/mainTemplate.xhtml">
+
+    <h:head>
+        <title>Créer une race</title>
+    </h:head>
+
+    <ui:define name="bodyContent">
+        <h:form>
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"/>
+
+            <h:panelGrid columns="2">
+
+                <h:outputLabel for="race" value="Nom de la nouvelle race : " />
+                <p:spinner id="race" value="#{raceBean.name}" />
+
+            </h:panelGrid>
+
+            <p:commandButton value="OK" ajax="false" action="#{raceBean.createRace()}" />
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>

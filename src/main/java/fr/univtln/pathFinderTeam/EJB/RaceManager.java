@@ -1,7 +1,9 @@
 package fr.univtln.pathFinderTeam.EJB;
 
 import fr.univtln.pathFinderTeam.DAO.CrudService;
+import fr.univtln.pathFinderTeam.DAO.QueryParameter;
 import fr.univtln.pathFinderTeam.classes.Race;
+import fr.univtln.pathFinderTeam.classes.utilites.Properties;
 import fr.univtln.pathFinderTeam.utilities.Errors;
 
 import javax.ejb.Stateless;
@@ -56,5 +58,10 @@ public class RaceManager implements Serializable {
     public List<Race> findAll() {
 
         return cs.findAll(Race.class);
+    }
+
+    public Race findByName(String pName) {
+
+        return (Race) cs.findWithNamedQuery(Properties.FIND_RACE_BY_NAME, QueryParameter.with("pName",pName).parameters()).get(0);
     }
 }
